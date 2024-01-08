@@ -25,12 +25,12 @@ export default function RootLayout({ children }) {
         <ApolloProvider client={client}>
           <ContextProvider>
             <div className="flex flex-grow ">
+              <AsideNavbar />
               <div className="flex-1">
                 <Navbar />
                 {children}
                 {/* <Footer /> */}
               </div>
-              <AsideNavbar />
             </div>
           </ContextProvider>
         </ApolloProvider>

@@ -65,7 +65,6 @@ function FeedsPanel() {
           }}
           className="flex flex-col overflow-hidden items-center gap-10"
         >
-          {/* <div className="pt-10 grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 w-[100vw] sm:w-[95vw] justify-center md:w-[95vw] lg:w-[85vw] xl:w-[70vw]"> */}
           <div className="pt-10 w-full flex flex-wrap justify-center gap-4">
             {itemarr?.map((item, index) => {
               return <Card key={index} items={item} />;

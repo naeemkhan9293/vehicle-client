@@ -25,7 +25,7 @@ export default function AsideNavbar() {
 
   return (
     <aside
-      className={`mt-12 hover:opacity-100 bg-[#405560] transition-all duration-1000 ${
+      className={`mt-12 hover:opacity-100 absolute left-0 md:relative bg-[#405560] transition-all duration-1000 ${
         asideToggle ? "w-72" : "w-0 collapse"
       } `}
     >

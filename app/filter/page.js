@@ -47,18 +47,13 @@ export default function Filter({ comStyle }) {
   }, [filterCredentials.make, data]);
 
   return (
-    <div
-      className={`w-full m-auto md:mt-24 relative top-9 bg-[#405560] rounded-sm pb-[2px]`}
-    >
-      <h3 className="inline-block bg-sky-600 p-3 rounded-sm my-3 mx-3 text-white">
-        Filter Vehicles
-      </h3>
+    <div className={`bg-[#405560]  relative top-9 w-full`}>
       <form
-        className="flex items-center justify-start gap-3 flex-wrap mx-3"
+        className="flex items-center justify-center flex-wrap"
         onSubmit={formsubmit}
       >
         <select
-          className="p-2 w-36 rounded-sm"
+          className="p-2 w-36 "
           name="make"
           id="make"
           onChange={changeHandler}
@@ -75,7 +70,7 @@ export default function Filter({ comStyle }) {
           })}
         </select>
         <select
-          className="p-2 rounded-sm w-36"
+          className="p-2 w-36"
           name="model"
           id="model"
           onChange={changeHandler}
@@ -93,7 +88,7 @@ export default function Filter({ comStyle }) {
         </select>
 
         <select
-          className="p-2 rounded-sm w-36"
+          className="p-2  w-36"
           name="fuelType"
           id="fuelType"
           onChange={changeHandler}
@@ -110,7 +105,7 @@ export default function Filter({ comStyle }) {
           })}
         </select>
         <select
-          className="p-2 rounded-sm w-36"
+          className="p-2  w-36"
           name="transmission"
           id="transmission"
           onChange={changeHandler}
@@ -128,7 +123,7 @@ export default function Filter({ comStyle }) {
         </select>
 
         <select
-          className="p-2 rounded-sm w-36"
+          className="p-2  w-36"
           name="location"
           id="location"
           onChange={changeHandler}
@@ -145,7 +140,7 @@ export default function Filter({ comStyle }) {
           })}
         </select>
         <select
-          className="p-2 rounded-sm w-36"
+          className="p-2  w-36"
           name="Steering"
           id="Steering"
           onChange={changeHandler}
@@ -157,9 +152,9 @@ export default function Filter({ comStyle }) {
           <option value="Right">Right</option>
         </select>
 
-        <div className="flex gap-3 ">
+        
           <select
-            className="p-2 rounded-sm w-36"
+            className="p-2  w-36"
             name="Steering"
             id="Steering"
             onChange={changeHandler}
@@ -170,15 +165,15 @@ export default function Filter({ comStyle }) {
             <option value="Left">Left</option>
             <option value="Right">Right</option>
           </select>
-        </div>
+       
+        <button
+          type="submit"
+          onClick={formsubmit}
+          className="W-36 bg-sky-600 p-2 text-white"
+        >
+          Search
+        </button>
       </form>
-      <button
-        type="submit"
-        onClick={formsubmit}
-        className="flex gap-3 bg-sky-600 p-2 rounded-sm my-3 mx-3 text-white"
-      >
-        Search
-      </button>
     </div>
   );
 }

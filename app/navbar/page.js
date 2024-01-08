@@ -24,21 +24,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed z-[1] bg-[#405560] transition duration-1000 bg-opacity-70z-50">
+      <header className="fixed z-[1] bg-[#405560] transition duration-1000 bg-opacity-70z-50 py-3">
         <div className="text-white w-screen  justify-around z-50 shadow-sm flex items-center ">
-          <Link
-            href={"/"}
-            className="flex title-font font-medium items-center text-gray-900 "
-          >
-            <Image src={Logo} width={100} alt="kjk" className="invert-[1]" />
-            <span className="ml-3 text-xl text-white">Vehicle Web</span>
-          </Link>
-          <nav className="flex gap-4">
-            <span>Hello</span>
-            <span>World</span>
-          </nav>
-
-          {/* --------Hamburger---------- */}
           <button
             onClick={hamClick}
             className="inline-flex items-center text-black  bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base "
@@ -58,6 +45,20 @@ export default function Navbar() {
               />
             </svg>
           </button>
+
+          <nav className="flex gap-4">
+            <span>Hello</span>
+            <span>World</span>
+          </nav>
+
+          {/* --------Hamburger---------- */}
+          <Link
+            href={"/"}
+            className="flex title-font font-medium items-center text-gray-900 "
+          >
+            <Image src={Logo} width={50} alt="kjk" className="invert-[1]" />
+            <span className="ml-3 text-white">Vehicle Web</span>
+          </Link>
         </div>
       </header>
     </>
