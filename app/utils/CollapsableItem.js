@@ -31,7 +31,7 @@ function CollapsableItem({ title, items }) {
             />
           </svg>
         </button>
-        <Link className="w-4/5" href={`/feeds-panel/${title}`}>
+        <Link className="w-4/5" href={`/feeds-panel?make=${title}`}>
           {title}
         </Link>
       </div>
@@ -44,7 +44,7 @@ function CollapsableItem({ title, items }) {
           return (
             <Link
               key={index}
-              href={`/feeds-panel/${item}`}
+              href={`/feeds-panel?model=${item}`}
               className="px-3 py-[2px] mx-4 mt-3 last:mb-3 hover:bg-white hover:text-black rounded-[4px]  flex-1"
             >
               {item}

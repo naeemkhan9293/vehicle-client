@@ -31,14 +31,11 @@ export default function Filter({ comStyle }) {
     return params.toString();
   }, [filterCredentials]);
 
-  const formsubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      const queryString = createQueryString();
-      router.replace(`/feeds-panel?${queryString}`);
-    },
-    [createQueryString, router]
-  );
+  const formsubmit = (e) => {
+    e.preventDefault();
+    const queryString = createQueryString();
+    router.replace(`/feeds-panel?${queryString}`);
+  };
 
   useEffect(() => {
     const models = data?.getMakes?.makes?.filter(
@@ -51,7 +48,7 @@ export default function Filter({ comStyle }) {
 
   return (
     <div
-      className={`w-fit m-auto md:mt-24  bg-[#405560] rounded-sm ${comStyle}`}
+      className={`w-full m-auto md:mt-24 relative top-9 bg-[#405560] rounded-sm pb-[2px]`}
     >
       <h3 className="inline-block bg-sky-600 p-3 rounded-sm my-3 mx-3 text-white">
         Filter Vehicles

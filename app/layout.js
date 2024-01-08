@@ -24,10 +24,14 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className}`}>
         <ApolloProvider client={client}>
           <ContextProvider>
-            <Navbar />
-            <AsideNavbar />
-            {children}
-            <Footer />
+            <div className="flex flex-grow ">
+              <div className="flex-1">
+                <Navbar />
+                {children}
+                {/* <Footer /> */}
+              </div>
+              <AsideNavbar />
+            </div>
           </ContextProvider>
         </ApolloProvider>
       </body>

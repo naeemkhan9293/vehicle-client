@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function AsideNavbar() {
   const { loading, error, data } = useQuery(GET_MAKEMODEL);
-  const { asideToggle ,setAsideToggle } = contextState();
+  const { asideToggle, setAsideToggle } = contextState();
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -19,15 +19,15 @@ export default function AsideNavbar() {
 
   const isBrowser = typeof window !== "undefined";
 
-  useEffect(()=>{
-    setAsideToggle(false)
-  },[isBrowser])
+  useEffect(() => {
+    setAsideToggle(false);
+  }, [isBrowser]);
 
   return (
     <aside
-      className={`z-50 absolute right-0 top-[50px] w-60  hover:opacity-100 bg-[#405560] transition-all duration-1000 ${
-        asideToggle ? "translate-x-0" : "translate-x-80"
-      }`}
+      className={`mt-12 hover:opacity-100 bg-[#405560] transition-all duration-1000 ${
+        asideToggle ? "w-72" : "w-0 collapse"
+      } `}
     >
       <CollapsibleContainer title={"Made By"}>
         {data?.getMakes?.makes?.map((items, index) => {
@@ -42,12 +42,12 @@ export default function AsideNavbar() {
       </CollapsibleContainer>
 
       <CollapsibleContainer title={"Location"}>
-        <div className="flex flex-col gap-1 p-4 text-white">
+        <div className="flex flex-col gap-1  p-4 text-white">
           {data?.getMakes?.location?.map((item, index) => {
             return (
               <Link
-              key={index}
-                href={`/feeds-panel/${item}`}
+                key={index}
+                href={`/feeds-panel?location=${item}`}
                 className="hover:bg-white hover:text-black rounded px-2"
               >
                 {item}

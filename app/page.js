@@ -25,9 +25,13 @@ export default function Home() {
     <main>
       <ImageSlider images={images} />
       <Filter comStyle="relative bottom-16" />
-      <section className="home-container text-gray-600 body-font flex overflow-x-scroll scroll-smooth snap-mandatory snap-x mt-11">
+      <section className="home-container text-gray-600 body-font flex overflow-x-scroll m-auto w-[70vw] scroll-smooth snap-mandatory snap-x mt-11 gap-3">
         {data?.getVehicles.map((item, index) => {
-          return <Card key={index} items={item} />;
+          return (
+            <div className="w-80">
+              <Card key={index} items={item} />
+            </div>
+          );
         })}
       </section>
 
