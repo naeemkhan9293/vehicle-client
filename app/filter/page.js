@@ -47,7 +47,7 @@ export default function Filter({ comStyle }) {
   }, [filterCredentials.make, data]);
 
   return (
-    <div className={`bg-[#405560] p-3 rounded-sm m-auto mt-16`}>
+    <div className={`bg-[#405560] max-w-7xl p-3 rounded-sm m-auto mt-16`}>
       <form
         className="flex items-center justify-center flex-wrap gap-1"
         onSubmit={formsubmit}
