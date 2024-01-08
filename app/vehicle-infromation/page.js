@@ -2,7 +2,7 @@
 import ImageSlider from "@/app/imageSlider/ImageSlider";
 import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function VehicleInformation() {
   const [arr, setArr] = useState([]);
   const dispData = () => {
     for (let i = 0; i < 10; i++) {

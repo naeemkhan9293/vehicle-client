@@ -49,5 +49,27 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  overflow-x: hidden;
+  /* overflow: hidden; */
+}
+
+
+.customeScroll {
+  --sb-track-color: #454748;
+  --sb-thumb-color: #848685;
+  --sb-size: 15px;
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+.customeScroll::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.customeScroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 10px;
+}
+
+.customeScroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 10px;
 }

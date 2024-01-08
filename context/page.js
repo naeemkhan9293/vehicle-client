@@ -1,3 +1,4 @@
+"use client"
 import { createContext, useContext, useState } from "react";
 
 const VehicleContext = createContext();
@@ -28,12 +29,12 @@ const ContextProvider = ({ children }) => {
   );
 };
 
-const contextState = () => {
+const useContextState = () => {
   const context = useContext(VehicleContext);
   if (!context) {
-    throw new Error("contextState must be used within a ContextProvider");
+    throw new Error("useContextState must be used within a ContextProvider");
   }
   return context;
 };
 
-export { ContextProvider, contextState };
+export { ContextProvider, useContextState };

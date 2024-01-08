@@ -2,14 +2,14 @@
 import { useQuery } from "@apollo/client";
 import { GET_MAKEMODEL } from "../query/vehicleQuery";
 import CollapsableItem from "../utils/CollapsableItem";
-import { contextState } from "../context";
+import { useContextState } from "../../context/page";
 import { useEffect, useState } from "react";
 import CollapsibleContainer from "../utils/CollapsibleContainer";
 import Link from "next/link";
 
 export default function AsideNavbar() {
   const { loading, error, data } = useQuery(GET_MAKEMODEL);
-  const { asideToggle, setAsideToggle } = contextState();
+  const { asideToggle, setAsideToggle } = useContextState();
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -25,8 +25,8 @@ export default function AsideNavbar() {
 
   return (
     <aside
-      className={`mt-12 hover:opacity-100 absolute left-0 md:relative bg-[#405560] transition-all duration-1000 ${
-        asideToggle ? "w-72" : "w-0 collapse"
+      className={`pt-12 hover:opacity-100  bg-[#405560] transition-all duration-1000  ${
+        asideToggle ? "w-80 md:w-72" : "w-0 collapse "
       } `}
     >
       <CollapsibleContainer title={"Made By"}>

@@ -1,16 +1,14 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import Link from "next/link";
 
-function Card({ items }) {
-  const { StandardFeatures, images } = items;
+export default function Card({ items  }) {
   return (
     <div className=" cursor-pointer  w-max max-w-72">
       <div className="h-full border-2 border-gray-300  rounded-lg overflow-hidden">
         <div className="h-48 relative">
           <Image
-            src={`http://localhost:4000/images/vehicle/${images[0]}`}
+            src={`http://localhost:4000/images/vehicle/${items?.images[0]}`}
             className="-z-10  object-cover object-center"
             fill
             alt="some"
@@ -102,7 +100,7 @@ function Card({ items }) {
               <path d="M12 3v3m0 12v3" />
             </svg>
 
-            {items.price}
+            {items?.price}
           </h1>
           {/* ------------------------------------ */}
 
@@ -160,5 +158,3 @@ function Card({ items }) {
     </div>
   );
 }
-
-export default Card;

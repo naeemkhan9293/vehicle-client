@@ -1,12 +1,10 @@
 "use client";
-import Card from "../cards/page";
+import Card from "../card/page";
 import { useQuery } from "@apollo/client";
-import { GET_FILTERVEHICLES, GET_MAKEMODEL } from "@/app/query/vehicleQuery";
+import { GET_FILTERVEHICLES } from "@/app/query/vehicleQuery";
 import Spiner from "@/app/spiner/page";
-import { useCallback, useEffect, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Filter from "../filter/page";
 
 function FeedsPanel() {
   const [skip, setSkip] = useState(0);
@@ -18,11 +16,6 @@ function FeedsPanel() {
   useEffect(() => {
     setSkip(0);
     setItemarr([]);
-    // let obj = {};
-    // searchParams.forEach((value, key) => {
-    //   obj[key] = value;
-    // });
-    // setFilterUrl(obj);
     setFilterUrl(Object.fromEntries(searchParams));
   }, [searchParams]);
 
@@ -50,27 +43,23 @@ function FeedsPanel() {
   }, [dataFilterVehicles?.filterQuery]);
 
   return (
-    <section className="p-3">
-      {/* ----------------filter------------------ */}
-      <Filter />
-      {/* ----------------filter------------------ */}
-      <main className="flex items-center justify-center">
-        <InfiniteScroll
-          dataLength={itemarr?.length}
-          next={fetchData}
-          hasMore={!loadingFilterVehicles}
-          loader={<Spiner />}
-          style={{
-            overflow: "hidden",
-          }}
-          className="flex flex-col overflow-hidden items-center gap-10"
-        >
-          <div className="pt-10 w-full flex flex-wrap justify-center gap-4">
-            {itemarr?.map((item, index) => {
-              return <Card key={index} items={item} />;
-            })}
-          </div>
-        </InfiniteScroll>
+    <section className="">
+      <main className="flex flex-col gap-4 items-center w-full  justify-center">
+        <div className="w-full flex flex-wrap justify-center gap-4">
+          {itemarr?.map((item, index) => {
+            return <Card key={index} items={item} />;
+          })}
+        </div>
+        {loadingFilterVehicles && <Spiner />}
+        <div className="w-full flex flex-col items-center mt-3">
+          <sppan className="w-full h-[1px] bg-gray-400"></sppan>
+          <button
+            className="border bg-slate-100  border-gray-400 w-fit p-2 px-4 rounded-full relative bottom-5"
+            onClick={fetchData}
+          >
+            Load more
+          </button>
+        </div>
       </main>
     </section>
   );

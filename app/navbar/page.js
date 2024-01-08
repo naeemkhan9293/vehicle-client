@@ -7,11 +7,11 @@ import Logo from "@/public/Logo.svg";
 import { usePathname } from "next/navigation";
 import { useQuery } from "@apollo/client";
 import { GET_MAKEMODEL } from "../query/vehicleQuery";
-import { contextState } from "../context";
+import { useContextState } from "../../context/page";
 
 export default function Navbar() {
   const { loading, error, data } = useQuery(GET_MAKEMODEL);
-  const { asideToggle, setAsideToggle } = contextState();
+  const { asideToggle, setAsideToggle } = useContextState();
   const hamClick = () => {
     asideToggle ? setAsideToggle(false) : setAsideToggle(true);
   };
@@ -46,9 +46,10 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <nav className="flex gap-4">
-            <span>Hello</span>
-            <span>World</span>
+          <nav className="gap-4 hidden sm:flex">
+            <Link className="bg-slate-500 text-nowrap px-2 rounded-sm" href={"/aboutus"}>About Us</Link>
+            <Link className="bg-slate-500 text-nowrap px-2 rounded-sm" href={"/contactus"}>Contact Us</Link>
+            <Link className="bg-slate-500 text-nowrap px-2 rounded-sm" href={"/faqs"}>{"FAQ\'s"}</Link>
           </nav>
 
           {/* --------Hamburger---------- */}

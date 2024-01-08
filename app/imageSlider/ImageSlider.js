@@ -51,7 +51,7 @@ function ImageSlider({ images }) {
 
   return (
     <div className="!max-h-[80vh]">
-      <div className="bg-gradient-to-bl relative h-[70vh]">
+      <div className="bg-gradient-to-bl relative h-[80vh]">
         <Image
           src={imageSrc}
           className=" rounded-b-xl rounded-bl-xl object-cover object-center"

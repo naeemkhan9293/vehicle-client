@@ -6,7 +6,7 @@ import Navbar from "@/app/navbar/page";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Aside from "./navbar/Aside";
 import AsideNavbar from "./navbar/Aside";
-import { ContextProvider } from "./context";
+import { ContextProvider } from "../context/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className}`}>
         <ApolloProvider client={client}>
           <ContextProvider>
-            <div className="flex flex-grow ">
+            <div className="flex">
               <AsideNavbar />
               <div className="flex-1">
                 <Navbar />

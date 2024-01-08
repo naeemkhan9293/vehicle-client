@@ -13,14 +13,28 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-    // screens: {
-    //   smm: { min: "0px", max: "640px" },
-    //   sm: { min: "640px", max: "767px" },
-    //   md: { min: "768px", max: "1023px" },
-    //   lg: { min: "1024px", max: "1279px" },
-    //   xl: { min: "1280px", max: "1535px" },
-    //   "2xl": { min: "1536px" },
-    // },
+    keyframes: {
+      typing: {
+        "0%": {
+          width: "0%",
+          visibility: "hidden",
+        },
+        "100%": {
+          width: "100%",
+        },
+      },
+      blink: {
+        "50%": {
+          borderColor: "transparent",
+        },
+        "100%": {
+          borderColor: "white",
+        },
+      },
+    },
+    animation: {
+      typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
+    },
   },
   plugins: [],
 };

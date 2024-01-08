@@ -3,10 +3,10 @@ import { useQuery } from "@apollo/client";
 import { GET_MAKEMODEL } from "../query/vehicleQuery";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { contextState } from "../context";
+import { useContextState } from "../../context/page";
 
 export default function Filter({ comStyle }) {
-  const { filterCredentials, setFilterCredentials } = contextState();
+  const { filterCredentials, setFilterCredentials } = useContextState();
   const [models, setModels] = useState({});
   const { loading, error, data } = useQuery(GET_MAKEMODEL);
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function Filter({ comStyle }) {
       }
       return newCredentials;
     });
-  }, []);
+  }, [setFilterCredentials]);
 
   const createQueryString = useCallback(() => {
     const params = new URLSearchParams(searchParams);
@@ -34,7 +34,7 @@ export default function Filter({ comStyle }) {
   const formsubmit = (e) => {
     e.preventDefault();
     const queryString = createQueryString();
-    router.replace(`/feeds-panel?${queryString}`);
+    router.replace(`/?${queryString}`);
   };
 
   useEffect(() => {
@@ -47,9 +47,9 @@ export default function Filter({ comStyle }) {
   }, [filterCredentials.make, data]);
 
   return (
-    <div className={`bg-[#405560]  relative top-9 w-full`}>
+    <div className={`bg-[#405560] p-3 rounded-sm m-auto mt-16`}>
       <form
-        className="flex items-center justify-center flex-wrap"
+        className="flex items-center justify-center flex-wrap gap-1"
         onSubmit={formsubmit}
       >
         <select
@@ -88,7 +88,7 @@ export default function Filter({ comStyle }) {
         </select>
 
         <select
-          className="p-2  w-36"
+          className="p-2 w-36"
           name="fuelType"
           id="fuelType"
           onChange={changeHandler}
@@ -105,7 +105,7 @@ export default function Filter({ comStyle }) {
           })}
         </select>
         <select
-          className="p-2  w-36"
+          className="p-2 w-36"
           name="transmission"
           id="transmission"
           onChange={changeHandler}
@@ -123,7 +123,7 @@ export default function Filter({ comStyle }) {
         </select>
 
         <select
-          className="p-2  w-36"
+          className="p-2 w-36"
           name="location"
           id="location"
           onChange={changeHandler}
@@ -169,7 +169,7 @@ export default function Filter({ comStyle }) {
         <button
           type="submit"
           onClick={formsubmit}
-          className="W-36 bg-sky-600 p-2 text-white"
+          className="w-36 bg-sky-600 p-2 text-white"
         >
           Search
         </button>
