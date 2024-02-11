@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { createContext, useContext, useState } from "react";
+import { uploadUserImage } from "./ImageQueryUser";
 
 const VehicleContext = createContext();
 
@@ -15,6 +16,9 @@ const ContextProvider = ({ children }) => {
     Steering: "",
   });
 
+  const [authLogin, setauthLogin] = useState(false);
+
+
   return (
     <VehicleContext.Provider
       value={{
@@ -22,6 +26,9 @@ const ContextProvider = ({ children }) => {
         setAsideToggle,
         filterCredentials,
         setFilterCredentials,
+        uploadUserImage,
+        authLogin,
+        setauthLogin
       }}
     >
       {children}

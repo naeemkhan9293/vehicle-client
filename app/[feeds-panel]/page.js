@@ -52,7 +52,7 @@ function FeedsPanel() {
         </div>
         {loadingFilterVehicles && <Spiner />}
         <div className="w-full flex flex-col items-center mt-3">
-          <sppan className="w-full h-[1px] bg-gray-400"></sppan>
+          <span className="w-full h-[1px] bg-gray-400"></span>
           <button
             className="border bg-slate-100  border-gray-400 w-fit p-2 px-4 rounded-full relative bottom-5"
             onClick={fetchData}

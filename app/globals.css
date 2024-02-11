@@ -49,14 +49,14 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 
 .customeScroll {
-  --sb-track-color: #454748;
+  --sb-track-color: #45474800;
   --sb-thumb-color: #848685;
-  --sb-size: 15px;
+  --sb-size: 12px;
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
 
@@ -72,4 +72,52 @@ body {
 .customeScroll::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 10px;
+}
+
+.bg-custome-color-primary {
+  background-color: #0B2027;
+}
+
+.bg-custome-color-secondary {
+  background-color: #122931;
+}
+
+.btn-primary-color {
+  background-color: #a34600;
+}
+
+.btn-primary-text-color {
+  color: #a34600;
+}
+
+
+.specification {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.specification li {
+  width: 200px;
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .specification {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .specification li:nth-child(odd) {
+    @apply bg-slate-400
+  }
+}
+
+@media (min-width: 400px ) and (max-width:640px) {
+  .specification {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .specification li:nth-child(1n + 5) {
+    @apply bg-slate-400
+  }
 }

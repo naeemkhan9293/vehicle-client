@@ -1,21 +1,18 @@
 "use client";
-import { useQuery } from "@apollo/client";
-import { GET_VEHICLES } from "./query/vehicleQuery";
-import { useEffect, useState } from "react";
 import Filter from "./filter/page";
 import FeedsPanel from "./[feeds-panel]/page";
 import ImageSlider from "./imageSlider/ImageSlider";
 
 export default function Home() {
-  const { loading, error, data } = useQuery(GET_VEHICLES);
   const images = [
     "085eac400e834ed15f5b.jpg",
     "09ea6f2ff6e182354bd8.jpg",
     "0bac4f94d2ec5adff41d.jpg",
   ];
 
+
   return (
-    <main className="h-dvh overflow-y-scroll overflow-x-hidden customeScroll">
+    <main className=" overflow-x-hidden">
       <ImageSlider images={images} />
       <Filter />
 

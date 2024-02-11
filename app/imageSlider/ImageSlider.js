@@ -1,9 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import Image from "next/image";
-import mvac from "@/public/mvac.jpg";
-import mvac1 from "@/public/mvac1.jpg";
-import mvac2 from "@/public/mvac2.jpg";
 
 const INITIAL_STATE = {
   imagesArray: [],
@@ -46,7 +43,7 @@ function ImageSlider({ images }) {
   }, [state?.imagesArray, currimg]);
 
   const imageSrc = useMemo(() => {
-    return `http://localhost:4000/images/vehicle/${state.imagesArray[currimg]}`;
+    return `${process.env.NEXT_PUBLIC_HOST}/images/vehicle/${state.imagesArray[currimg]}`;
   }, [state.imagesArray, currimg]);
 
   return (

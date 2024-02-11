@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import DropIcon from "../icons/DropIcon";
 
 function CollapsableItem({ title, items }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,28 +11,18 @@ function CollapsableItem({ title, items }) {
   };
 
   return (
-    <div className="m-auto mx-4 my-2 w-4/5 rounded-[4px]  bg-[#273748]">
-      <div className="flex gap-3 items-center text-white  rounded-[4px] "
-      >
+    <div className="m-auto mx-4 my-2 w-4/5 rounded-[4px] bg-custome-color-secondary">
+      <div className="flex gap-3 flex-row-reverse items-center text-white  rounded-[4px] ">
         <button onClick={toggleCollapse} className="p-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={`w-4 h-4 ${
+          <span
+            className={`w-4 block ${
               isOpen ? "rotate-180" : "rotate-0"
             } transition-all duration-500`}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+            <DropIcon />
+          </span>
         </button>
-        <Link className="w-4/5" href={`/?make=${title}`}>
+        <Link className="w-4/5 pl-3" href={`/?make=${title}`}>
           {title}
         </Link>
       </div>

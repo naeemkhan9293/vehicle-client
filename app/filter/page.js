@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { useContextState } from "../../context/page";
 
-export default function Filter({ comStyle }) {
+export default function Filter() {
   const { filterCredentials, setFilterCredentials } = useContextState();
   const [models, setModels] = useState({});
   const { loading, error, data } = useQuery(GET_MAKEMODEL);
